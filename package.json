@@ -21,7 +21,7 @@
     "url": "https://github.com/gdangelo/ReactStarter/issues"
   },
   "homepage": "https://github.com/gdangelo/ReactStarter#readme",
-  "dependencies": {
+  "devDependencies": {
     "browserify": "^11.0.1",
     "gulp": "^3.9.0",
     "gulp-util": "^3.0.6",
