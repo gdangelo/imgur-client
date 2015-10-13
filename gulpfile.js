@@ -4,6 +4,7 @@ var source = require('vinyl-source-stream');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
+var server = require('gulp-server-livereload');
 
 var bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
@@ -29,4 +30,19 @@ gulp.task('build', function () {
   bundle();
 });
 
-gulp.task('default', ['build']);
+gulp.task('serve', function () {
+  gulp.src('')
+    .pipe(server({
+      livereload: {
+        enable: true,
+        filter: function(filePath, cb) {
+          if (/main.js/.test(filePath)) {
+            cb(true);
+          }
+        }
+      },
+      open: true
+    }));
+});
+
+gulp.task('default', ['build', 'serve']);
