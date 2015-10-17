@@ -5,6 +5,9 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var reactify = require('reactify');
 var server = require('gulp-server-livereload');
+var watch = require('gulp-watch');
+var sass = require('gulp-sass');
+var concat = require('gulp-concat');
 
 var bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
@@ -45,4 +48,15 @@ gulp.task('serve', function () {
     }));
 });
 
-gulp.task('default', ['build', 'serve']);
+gulp.task('sass', function () {
+  gulp.src('./sass/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('default', ['build', 'serve', 'sass', 'watch']);
+
+gulp.task('watch', function () {
+  gulp.watch('./sass/**/*.scss', ['sass']);
+});
