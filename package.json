@@ -29,7 +29,10 @@
     "react": "^0.13.3",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
+    "watchify": "^3.4.0",
+    "gulp-watch": "~4.3.5",
+    "gulp-sass": "~2.0.4",
+    "gulp-concat": "~2.6.0"
   },
   "dependencies": {
     "react-router": "^1.0.0-rc3",
