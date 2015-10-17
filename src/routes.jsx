@@ -5,10 +5,12 @@ var Router = ReactRouter.Router;
 var Route = ReactRouter.Route;
 
 var Main = require('./components/main');
+var Topic = require('./components/topic');
 
 module.exports = (
   <Router history={createHashHistory({queryKey: true})}>
     <Route path="/" component={Main}>
+      <Route path="topics/:id" component={Topic} />
     </Route>
   </Router>
 );

@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactRouter = require('react-router');
 
 var Header = require('./header');
 var TopicList = require('./topic-list');
@@ -13,7 +12,6 @@ module.exports = React.createClass({
       </div>
     );
   },
-
   content: function () {
     if (this.props.children) {
       return this.props.children;
