@@ -25,8 +25,9 @@ module.exports = React.createClass({
     },
     renderTopics: function () {
       return this.state.topics.map(function(topic){
-        return <li>
-          {topic.name}
+        return <li className="list-group-item" key={topic.id}>
+          <h4>{topic.name}</h4>
+          <p>{topic.description}</p>
         </li>
       });
     },
