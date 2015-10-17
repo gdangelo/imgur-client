@@ -12,12 +12,7 @@ module.exports = React.createClass({
       };
     },
     componentWillMount: function () {
-      TopicStore.getTopics()
-        .then(function(){
-          this.setState({
-            topics: TopicStore.topics
-          });
-        }.bind(this));
+      TopicStore.getTopics();
     },
     render: function () {
       return (
