@@ -3,6 +3,8 @@ var Reflux = require('reflux');
 var ImageStore = require('../stores/topic-images');
 var Actions = require('../actions');
 
+var ImagePreview = require('./image-preview');
+
 module.exports = React.createClass({
     mixins: [
       Reflux.listenTo(ImageStore, 'onChange')
@@ -19,16 +21,16 @@ module.exports = React.createClass({
       Actions.getImages(nextProps.params.id);
     },
     render: function () {
-      return <ul>
+      return <div>
         {this.renderImages()}
-      </ul>
+      </div>
     },
     renderImages: function () {
       if (this.state.images.length <= 0){
         return "No images found."
       } else {
         return this.state.images.map(function(image){
-          return <li key={image.id}>{image.title}</li>
+          return <ImagePreview key={image.id} {...image} />
         });
       }
     },
