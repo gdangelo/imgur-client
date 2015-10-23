@@ -13,7 +13,11 @@ module.exports = React.createClass({
         onMouseLeave={this.handleMouseLeave}>
 
         {this.state.hovering && this.props.animated ? this.videos() : this.images()}
+        {!this.state.hovering && this.props.animated ? this.icons() : null}
       </div>
+    },
+    icons: function () {
+      return <span className="glyphicon glyphicon-play"></span>;
     },
     images: function () {
       var link = "https://i.imgur.com/" + this.props.id + "h.jpg";
