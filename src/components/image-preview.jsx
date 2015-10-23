@@ -14,7 +14,15 @@ module.exports = React.createClass({
 
         {this.state.hovering && this.props.animated ? this.videos() : this.images()}
         {!this.state.hovering && this.props.animated ? this.icons() : null}
+        {this.state.hovering ?  this.stats() : null}
       </div>
+    },
+    stats: function () {
+      return <div className="stats">
+        View: {this.props.views}
+        <br />
+        Upvotes: {this.props.ups}
+      </div>;
     },
     icons: function () {
       return <span className="glyphicon glyphicon-play"></span>;
